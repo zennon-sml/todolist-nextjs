@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "../db";
 import { TodoItem } from "../components/TodoItem";
+import axios from "axios";
 
 function getTodos() {
   return prisma.todo.findMany();
@@ -12,6 +13,15 @@ async function toggleTodo(id: string, complete: boolean) {
 
   await prisma.todo.update({where: {id}, data: { complete }})
 }
+// testing axios
+async function getId(){
+    const res = await axios.get("https://api.github.com/users/zennon-sml")
+    const id = res.data.id
+    console.log(id)
+  
+}
+
+getId()
 
 export default async function Home() {
   const todos = await getTodos();
