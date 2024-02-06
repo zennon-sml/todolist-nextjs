@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+
 async function connectToDatabase() {
   const client = new MongoClient("mongodb+srv://zennon-sml:asdf@todolistcluster.zyftt99.mongodb.net/?retryWrites=true&w=majority", {});
 
